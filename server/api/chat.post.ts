@@ -17,7 +17,7 @@ Key Profile Information about Nheb Panha:
   4. FinTech Wallet & Payment Suite (Flutter, PostgreSQL, Biometrics, Ledger)
   5. Academic Software & Accounting Management Suite (Vue 3, TypeScript, SQL, SME Accounting)
   6. Nheb Panha Developer Portfolio (Nuxt 4, Vue 3, Supabase, Tailwind CSS, Gemini AI)
-- Contact Info: Email: samlot.development@gmail.com / nhebpanha78@gmail.com, GitHub: https://github.com/panhanheb, LinkedIn: https://linkedin.com/in/nhebpanha, Portfolio: https://nheb-panha.vercel.app/
+- Contact Info: Email: samlot.development@gmail.com / nhebpanha78@gmail.com, Telegram: @panhanheb (https://t.me/panhanheb), GitHub: https://github.com/panhanheb, LinkedIn: https://linkedin.com/in/nhebpanha, Portfolio: https://nheb-panha.vercel.app/
 - Availability: Available for full-time software engineering roles and freelance mobile/web development.
 
 CRITICAL RULES:
@@ -88,8 +88,8 @@ export default defineEventHandler(async (event) => {
       finalResponse = "Key projects include Red Ant Express (logistics mobile app), an E-Commerce Discovery app, a Booking & Coupon Platform, a FinTech Wallet, and an Academic Accounting Suite."
     } else if (lowerPrompt.includes('about') || lowerPrompt.includes('who is') || lowerPrompt.includes('panha')) {
       finalResponse = "Nheb Panha is a Middle-Level Flutter Developer & Mobile App Architect based in Phnom Penh, Cambodia. He focuses on building scalable, reliable, and intuitive cross-platform applications."
-    } else if (lowerPrompt.includes('contact') || lowerPrompt.includes('email') || lowerPrompt.includes('hire')) {
-      finalResponse = "You can contact Panha at samlot.development@gmail.com, connect on LinkedIn (linkedin.com/in/nhebpanha), or leave a message directly in the Contact section!"
+    } else if (lowerPrompt.includes('contact') || lowerPrompt.includes('email') || lowerPrompt.includes('telegram') || lowerPrompt.includes('hire')) {
+      finalResponse = "You can contact Panha by email at samlot.development@gmail.com or on Telegram @panhanheb (https://t.me/panhanheb). You can also connect on LinkedIn or leave a direct message in the Contact section!"
     } else if (lowerPrompt.includes('resume') || lowerPrompt.includes('cv')) {
       finalResponse = "You can download Panha's resume directly via the 'Download Resume' button in the navigation bar or Hero section."
     } else if (lowerPrompt.includes('architecture') || lowerPrompt.includes('clean') || lowerPrompt.includes('bloc')) {

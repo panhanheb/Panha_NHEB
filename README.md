@@ -254,8 +254,11 @@ portfolio_nheb_panha/
 
 ## 📬 Contact & Connect
 
-- 👨‍💻 **Developer:** NHEB Panha
-- 📧 **Email:** [samlot.development@gmail.com](mailto:samlot.development@gmail.com) / [nhebpanha78@gmail.com](mailto:nhebpanha78@gmail.com)
-- 💼 **LinkedIn:** [linkedin.com/in/nhebpanha](https://linkedin.com/in/nhebpanha)
-- 🌐 **Live Portfolio:** [nheb-panha.vercel.app](https://nheb-panha.vercel.app/)
-- 📍 **Location:** Phnom Penh, Cambodia (UTC+7)
+Feel free to reach out for full-time engineering roles, mobile architecture consultations, or contract projects:
+
+* 📧 **Direct Email:** [samlot.development@gmail.com](mailto:samlot.development@gmail.com) *(Backup: [nhebpanha78@gmail.com](mailto:nhebpanha78@gmail.com))*
+* ✈️ **Telegram (Direct & Fastest Response):** [@panhanheb](https://t.me/panhanheb)
+* 💼 **LinkedIn:** [linkedin.com/in/nhebpanha](https://linkedin.com/in/nhebpanha)
+* 🐙 **GitHub:** [github.com/panhanheb](https://github.com/panhanheb)
+* 🌐 **Live Portfolio:** [nheb-panha.vercel.app](https://nheb-panha.vercel.app/)
+* 📍 **Location:** Phnom Penh, Cambodia (UTC+7 • Indochina Time)

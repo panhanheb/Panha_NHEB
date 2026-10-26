@@ -26,67 +26,63 @@
           <!-- Main Headline -->
           <div class="space-y-2">
             <p class="text-xs sm:text-sm font-mono font-bold tracking-widest uppercase text-cyan-600 dark:text-cyan-400">
-              Flutter Developer & Mobile App Architect
+              HELLO, WORLD! I'M NHEB PANHA
             </p>
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.08] text-slate-900 dark:text-white">
-              Building Scalable <br class="hidden sm:inline" />
+              Building Digital <br class="hidden sm:inline" />
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-600">
-                Mobile Experiences.
+                Experiences That Make an Impact.
               </span>
             </h1>
           </div>
 
           <!-- Supporting Description -->
           <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
-            I'm <strong class="text-slate-900 dark:text-white font-semibold">Nheb Panha</strong>, a Flutter Developer focused on building reliable, intuitive, and maintainable mobile applications with Flutter, Supabase, Firebase, and Clean Architecture.
+            I'm a <strong class="text-slate-900 dark:text-white font-semibold">Flutter Developer</strong> passionate about building scalable mobile applications, clean software architectures, and intuitive digital experiences with Flutter, Supabase, and Firebase.
           </p>
 
-          <!-- Core Capability Highlights -->
+          <!-- Supporting Capability Badges -->
           <div class="flex flex-wrap gap-2 pt-1 text-xs">
             <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
               <Icon name="logos:flutter" class="text-sm" />
-              Flutter & Dart
-            </span>
-            <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-              <Icon name="logos:supabase-icon" class="text-sm" />
-              Supabase & PostgreSQL
-            </span>
-            <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-              <Icon name="logos:firebase" class="text-sm" />
-              Firebase
+              Flutter Developer
             </span>
             <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
               <span class="material-symbols-outlined text-cyan-500 text-sm">layers</span>
-              Clean Architecture & BLoC
+              Mobile App Architect
+            </span>
+            <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+              <Icon name="logos:supabase-icon" class="text-sm" />
+              Supabase Specialist
             </span>
           </div>
 
           <!-- CTAs & Action Links -->
           <div class="pt-3 flex flex-wrap items-center gap-3 sm:gap-4">
             <!-- Primary CTA -->
-            <a href="#projects" @click="(e) => scrollTo('#projects', e)"
-               class="btn-primary">
-              <span>View My Projects</span>
-              <span class="material-symbols-outlined text-base">arrow_downward</span>
-            </a>
+            <NuxtLink to="/projects"
+                      class="btn-primary">
+              <span>Explore My Work</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </NuxtLink>
 
             <!-- Secondary CTA -->
             <button @click="triggerResume"
                     class="btn-secondary">
               <span class="material-symbols-outlined text-base">download</span>
-              <span>Download Resume</span>
+              <span>Download My CV</span>
             </button>
 
             <!-- Contact Link -->
-            <a href="#contact" @click="(e) => scrollTo('#contact', e)"
-               class="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors px-2 py-1 flex items-center gap-1">
-              <span>Contact Me</span>
+            <NuxtLink to="/contact"
+                      class="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors px-2 py-1 flex items-center gap-1">
+              <span>Let's Talk</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </a>
+            </NuxtLink>
           </div>
 
           <!-- Social Proof / Verified Links -->
-          <div class="pt-2 flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+          <div class="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-slate-500 dark:text-slate-400">
             <span class="font-medium text-slate-400 dark:text-slate-500">Verified Profiles:</span>
             <a href="https://github.com/panhanheb" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-1.5 hover:text-cyan-500 transition-colors">
@@ -100,10 +96,13 @@
               <span>LinkedIn</span>
             </a>
             <span class="opacity-30">•</span>
-            <span class="inline-flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-              <span>Middle-Level Developer</span>
-            </span>
+            <a href="https://t.me/panhanheb" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 text-sky-500 hover:text-sky-400 font-semibold transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+              <span>Telegram</span>
+            </a>
           </div>
 
         </div>
@@ -147,8 +146,10 @@
                 <span>Supabase DB</span>
               </div>
 
-              <!-- Main Circle Avatar Container -->
-              <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[320px] md:h-[320px] rounded-full p-2 bg-gradient-to-tr from-cyan-400 via-sky-500 to-indigo-600 shadow-[0_0_50px_rgba(6,182,212,0.35)] transition-transform duration-500 hover:scale-[1.02] group">
+              <!-- Main Circle Avatar Container (Interactive Click to Switch) -->
+              <div @click="togglePhoto"
+                   class="relative w-72 h-72 sm:w-88 sm:h-88 md:w-[360px] md:h-[360px] rounded-full p-2 bg-gradient-to-tr from-cyan-400 via-sky-500 to-indigo-600 shadow-[0_0_60px_rgba(6,182,212,0.35)] transition-transform duration-500 hover:scale-[1.02] cursor-pointer group"
+                   title="Click to toggle photo">
                 
                 <!-- Inner Circle with Photo -->
                 <div class="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 bg-slate-950 relative shadow-inner">
@@ -159,7 +160,7 @@
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
                   
                   <!-- Ready for Hire Pill inside circle bottom -->
-                  <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-emerald-400/40 text-emerald-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg whitespace-nowrap">
+                  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-emerald-400/40 text-emerald-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg whitespace-nowrap">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span>Available for Hire</span>
                   </div>
@@ -167,51 +168,6 @@
 
               </div>
 
-            </div>
-
-            <!-- Photo Switcher Pill Below Circle -->
-            <div class="mt-4 flex items-center gap-2">
-              <button @click="togglePhoto"
-                      class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1.5 shadow-sm"
-                      title="Switch between studio photo and field photo">
-                <span class="material-symbols-outlined text-sm">switch_camera</span>
-                <span>Switch to {{ photoMode === 'studio' ? 'Field Photo' : 'Studio Photo' }}</span>
-              </button>
-            </div>
-
-            <!-- Profile Info Card Below Circle -->
-            <div class="mt-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg text-center space-y-2 w-full max-w-sm">
-              <div class="flex items-center justify-center gap-1.5">
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Nheb Panha</h3>
-                <span class="material-symbols-outlined text-cyan-500 text-base" title="Verified Profile">verified</span>
-              </div>
-              
-              <p class="text-xs font-semibold text-cyan-600 dark:text-cyan-400">
-                Flutter Developer & Mobile App Architect
-              </p>
-
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
-                <span class="material-symbols-outlined text-xs">location_on</span>
-                <span>Phnom Penh, Cambodia (UTC+7)</span>
-              </p>
-
-              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex justify-center gap-3">
-                <a href="https://github.com/panhanheb" target="_blank" rel="noopener noreferrer"
-                   class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 transition-colors"
-                   title="GitHub">
-                  <Icon name="logos:github-icon" class="text-sm" />
-                </a>
-                <a href="https://linkedin.com/in/nhebpanha" target="_blank" rel="noopener noreferrer"
-                   class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 transition-colors"
-                   title="LinkedIn">
-                  <Icon name="logos:linkedin-icon" class="text-sm" />
-                </a>
-                <a href="mailto:samlot.development@gmail.com"
-                   class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 transition-colors"
-                   title="Email">
-                  <span class="material-symbols-outlined text-sm">mail</span>
-                </a>
-              </div>
             </div>
 
           </div>

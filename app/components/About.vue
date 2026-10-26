@@ -7,13 +7,13 @@
       <!-- Section Header -->
       <div class="max-w-2xl mb-12 sm:mb-16">
         <span class="text-xs font-mono font-bold tracking-widest uppercase text-cyan-600 dark:text-cyan-400 block mb-2">
-          About Me
+          ABOUT ME
         </span>
         <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
-          Engineering Intuitive, Architecture-Driven Applications.
+          Turning Ideas Into Thoughtful Digital Experiences.
         </h2>
         <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-          A dedicated Middle-Level Flutter Developer based in Phnom Penh, focused on writing clean, scalable, and maintainable software across mobile and modern web environments.
+          A Middle-Level Flutter Developer based in Phnom Penh, Cambodia, dedicated to building reliable cross-platform applications, scalable software architectures, and intuitive digital interfaces.
         </p>
       </div>
 
@@ -46,34 +46,33 @@
                 </div>
                 <div>
                   <span class="text-slate-400 text-[10px] block uppercase font-medium">Backend</span>
-                  <span class="font-semibold text-slate-700 dark:text-slate-300">Supabase & REST</span>
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">Supabase & Firebase</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Quick Fact Card -->
-          <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/60 text-xs space-y-2">
-            <div class="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-              <span class="material-symbols-outlined text-cyan-500 text-sm">verified_user</span>
-              <span>Practical Background</span>
-            </div>
-            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-              Combining a systematic accounting-oriented mindset with software engineering—ensuring clean data modeling, robust ledger calculations, and disciplined application structure.
-            </p>
-          </div>
+          <!-- Link to Full About Page -->
+          <NuxtLink to="/about"
+                    class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between text-xs font-semibold text-slate-800 dark:text-slate-200 hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all group">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-cyan-500 text-base">badge</span>
+              <span>Read Full Professional Story & Approach</span>
+            </span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </NuxtLink>
         </div>
 
-        <!-- Right: Authentic Narrative & Core Pillars -->
+        <!-- Right: Authentic Narrative & What I Care About -->
         <div class="lg:col-span-7 space-y-6">
           
           <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
             <h3 class="text-xl font-bold text-slate-900 dark:text-white">
-              My Development Philosophy
+              Engineering with Architecture & Discipline
             </h3>
             
             <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              I specialize in cross-platform mobile application development with <strong>Flutter and Dart</strong>. My primary emphasis is on creating reliable, production-oriented solutions where clean architecture and predictable state management come first.
+              I specialize in cross-platform mobile application development with <strong>Flutter and Dart</strong>. My primary emphasis is on creating dependable, production-oriented solutions where clean software architecture and predictable state management come first.
             </p>
 
             <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -81,53 +80,58 @@
             </p>
 
             <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              On the backend and web side, I integrate <strong>Supabase</strong> (PostgreSQL with Row Level Security), <strong>Firebase</strong>, <strong>Vue 3</strong>, and <strong>Nuxt 4</strong> to create end-to-end synchronized ecosystems.
+              On the backend and web side, I integrate <strong>Supabase</strong> (PostgreSQL with Row Level Security), <strong>Firebase</strong>, <strong>REST APIs</strong>, and <strong>Vue 3 / Nuxt 4</strong> to create end-to-end synchronized ecosystems.
             </p>
           </div>
 
-          <!-- 4 Pillars Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            
-            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
-              <div class="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
-                <span class="material-symbols-outlined text-lg">architecture</span>
+          <!-- What I Care About Header & 4 Cards -->
+          <div class="space-y-3">
+            <span class="text-xs font-mono font-bold tracking-wider uppercase text-slate-400 block">
+              What I Care About
+            </span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                <div class="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">verified</span>
+                </div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Code Quality</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Writing readable, self-documenting code with strict typing, clear abstractions, and automated testability.
+                </p>
               </div>
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">Clean Architecture</h4>
-              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Strict layer decoupling (Presentation, Domain, and Data) ensures code is modular and testable.
-              </p>
-            </div>
 
-            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
-              <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
-                <span class="material-symbols-outlined text-lg">settings_suggest</span>
+              <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">touch_app</span>
+                </div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">User Experience</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Crafting fluid 60fps micro-interactions, responsive layouts, intuitive navigation, and thoughtful error states.
+                </p>
               </div>
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">Predictable State</h4>
-              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Employing BLoC, Cubit, and reactive streams to handle complex UI state without side effects.
-              </p>
-            </div>
 
-            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
-              <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                <span class="material-symbols-outlined text-lg">database</span>
+              <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">layers</span>
+                </div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Scalable Architecture</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Separating concerns across Presentation, Domain, and Data layers to ensure codebases scale without regression.
+                </p>
               </div>
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">Database & APIs</h4>
-              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Integrating PostgreSQL via Supabase, Firebase auth, RESTful APIs, and local offline caches.
-              </p>
-            </div>
 
-            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
-              <div class="w-8 h-8 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center">
-                <span class="material-symbols-outlined text-lg">devices</span>
+              <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                <div class="w-8 h-8 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">school</span>
+                </div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Continuous Learning</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Actively exploring modern design systems, cloud backend evolutions, and emerging mobile engineering standards.
+                </p>
               </div>
-              <h4 class="font-bold text-sm text-slate-900 dark:text-white">UI/UX Precision</h4>
-              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Crafting pixel-perfect, responsive layouts with smooth micro-interactions on mobile and web.
-              </p>
-            </div>
 
+            </div>
           </div>
 
         </div>

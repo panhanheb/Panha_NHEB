@@ -20,8 +20,33 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         
         <!-- Left: Direct Contact Alternatives & Profiles -->
-        <div class="lg:col-span-5 space-y-5">
+        <div class="lg:col-span-5 space-y-4">
           
+          <!-- Telegram Direct Card (Fastest Response) -->
+          <div class="p-5 rounded-2xl bg-gradient-to-br from-sky-500/10 via-cyan-500/5 to-transparent border border-sky-500/30 dark:border-sky-500/20 shadow-sm flex items-center justify-between">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">Telegram • Fastest Response</span>
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                </span>
+              </div>
+              <p class="text-sm font-semibold text-slate-900 dark:text-white font-mono">
+                @panhanheb
+              </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Instant messaging & direct conversation</p>
+            </div>
+            <a href="https://t.me/panhanheb" target="_blank" rel="noopener noreferrer"
+               class="px-3.5 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold text-xs transition-colors shrink-0 flex items-center gap-1.5 shadow-sm"
+               title="Chat on Telegram">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+              <span>Chat</span>
+            </a>
+          </div>
+
           <!-- Email Card -->
           <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
             <div class="space-y-1">
@@ -29,12 +54,20 @@
               <p class="text-sm font-semibold text-slate-900 dark:text-white font-mono break-all">
                 samlot.development@gmail.com
               </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Project briefs, formal offers & inquiries</p>
             </div>
-            <button @click="copyEmail" 
-                    class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-cyan-600 hover:border-cyan-500 transition-colors shrink-0"
-                    :title="copied ? 'Copied!' : 'Copy to clipboard'">
-              <span class="material-symbols-outlined text-lg">{{ copied ? 'check' : 'content_copy' }}</span>
-            </button>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <a href="mailto:samlot.development@gmail.com"
+                 class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-cyan-600 hover:border-cyan-500 transition-colors"
+                 title="Send email">
+                <span class="material-symbols-outlined text-lg">mail</span>
+              </a>
+              <button @click="copyEmail" 
+                      class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-cyan-600 hover:border-cyan-500 transition-colors"
+                      :title="copied ? 'Copied!' : 'Copy to clipboard'">
+                <span class="material-symbols-outlined text-lg">{{ copied ? 'check' : 'content_copy' }}</span>
+              </button>
+            </div>
           </div>
 
           <!-- Location & Availability Card -->
@@ -56,23 +89,23 @@
             <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
               Professional Profiles
             </span>
-            <div class="space-y-2">
+            <div class="grid grid-cols-2 gap-2">
               <a href="https://github.com/panhanheb" target="_blank" rel="noopener noreferrer"
                  class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:border-cyan-500 transition-colors">
-                <span class="flex items-center gap-2">
-                  <Icon name="logos:github-icon" class="text-base" />
-                  <span>GitHub Profile</span>
+                <span class="flex items-center gap-1.5">
+                  <Icon name="logos:github-icon" class="text-sm" />
+                  <span>GitHub</span>
                 </span>
-                <span class="material-symbols-outlined text-sm text-slate-400">arrow_forward</span>
+                <span class="material-symbols-outlined text-xs text-slate-400">arrow_forward</span>
               </a>
 
               <a href="https://linkedin.com/in/nhebpanha" target="_blank" rel="noopener noreferrer"
                  class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:border-cyan-500 transition-colors">
-                <span class="flex items-center gap-2">
-                  <Icon name="logos:linkedin-icon" class="text-base" />
-                  <span>LinkedIn Profile</span>
+                <span class="flex items-center gap-1.5">
+                  <Icon name="logos:linkedin-icon" class="text-sm" />
+                  <span>LinkedIn</span>
                 </span>
-                <span class="material-symbols-outlined text-sm text-slate-400">arrow_forward</span>
+                <span class="material-symbols-outlined text-xs text-slate-400">arrow_forward</span>
               </a>
             </div>
           </div>
@@ -81,13 +114,32 @@
 
         <!-- Right: Inquiry Form Panel -->
         <div class="lg:col-span-7">
-          <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
             
             <div class="space-y-1">
               <h3 class="text-lg font-bold text-slate-900 dark:text-white">Send a Direct Message</h3>
               <p class="text-xs text-slate-500 dark:text-slate-400">
-                Inquiries are safely recorded in Supabase and delivered directly via Telegram notification.
+                Inquiries are safely recorded in Supabase and dispatched straight to Panha's Telegram for rapid response.
               </p>
+            </div>
+
+            <!-- Direct Channels Quick Bar -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span class="text-slate-500 dark:text-slate-400 font-medium">Prefer direct chat?</span>
+              <div class="flex items-center gap-2">
+                <a href="https://t.me/panhanheb" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-600 dark:text-sky-400 font-semibold transition-colors">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                  </svg>
+                  <span>Telegram (@panhanheb)</span>
+                </a>
+                <a href="mailto:samlot.development@gmail.com"
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 font-semibold transition-colors">
+                  <span class="material-symbols-outlined text-sm">mail</span>
+                  <span>Email</span>
+                </a>
+              </div>
             </div>
 
             <!-- Feedback Alert Banner -->
