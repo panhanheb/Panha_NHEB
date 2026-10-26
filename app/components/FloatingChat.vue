@@ -1,49 +1,56 @@
 <template>
-  <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end pointer-events-none font-body">
-    <!-- Chat Window -->
+  <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end font-sans">
+    
+    <!-- Chat Window Dialog -->
     <Transition name="chat-window">
-      <div v-if="isOpen" class="chat-container mb-4 pointer-events-auto shadow-2xl">
+      <div v-if="isOpen" 
+           class="mb-3 w-[calc(100vw-3rem)] sm:w-96 max-w-sm h-[480px] flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden pointer-events-auto">
         
         <!-- Header -->
-        <div class="chat-header p-4 flex items-center justify-between relative overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-r from-primary via-purple-600 to-pink-500 z-0"></div>
-          
-          <div class="flex items-center gap-3 relative z-10">
-            <div class="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-md">
-              <span class="material-symbols-outlined text-white text-lg">smart_toy</span>
+        <div class="px-4 py-3 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs">
+              AI
             </div>
             <div>
-              <h3 class="text-xs font-black tracking-wider text-white uppercase">Panha AI Assistant</h3>
-              <div class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
-                <span class="text-[9px] font-bold text-white/90 uppercase tracking-widest">Supabase Active</span>
-              </div>
+              <h3 class="text-xs font-bold leading-none">Portfolio Assistant</h3>
+              <p class="text-[10px] text-cyan-400 font-mono mt-0.5 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Powered by Gemini & Supabase</span>
+              </p>
             </div>
           </div>
 
-          <button @click="isOpen = false" class="relative z-10 w-7 h-7 rounded-full flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all">
-            <span class="material-symbols-outlined text-lg">close</span>
-          </button>
+          <div class="flex items-center gap-1">
+            <button @click="resetConversation" class="p-1 rounded-lg text-slate-400 hover:text-white transition-colors" title="Clear Chat">
+              <span class="material-symbols-outlined text-base">restart_alt</span>
+            </button>
+            <button @click="isOpen = false" class="p-1 rounded-lg text-slate-400 hover:text-white transition-colors" title="Close Assistant">
+              <span class="material-symbols-outlined text-base">close</span>
+            </button>
+          </div>
         </div>
 
-        <!-- Quick Suggestions Bar -->
-        <div class="px-3 py-2 bg-black/5 dark:bg-white/5 border-b border-black/5 dark:border-white/5 flex gap-1.5 overflow-x-auto custom-scrollbar">
+        <!-- Quick Question Chips -->
+        <div class="px-3 py-2 bg-slate-50 dark:bg-slate-800/60 border-b border-slate-100 dark:border-slate-800 flex gap-1.5 overflow-x-auto no-scrollbar">
           <button v-for="chip in quickChips" :key="chip" @click="sendQuick(chip)"
-                  class="px-2.5 py-1 rounded-lg bg-white/60 dark:bg-white/10 text-[10px] font-bold uppercase tracking-wider text-on-surface hover:text-primary whitespace-nowrap border border-black/5 dark:border-white/5">
+                  class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-700/80 border border-slate-200 dark:border-slate-600 text-[10px] font-semibold text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 whitespace-nowrap transition-colors shrink-0">
             {{ chip }}
           </button>
         </div>
 
-        <!-- Messages Area -->
-        <div ref="messageContainer" class="flex-1 overflow-y-auto p-4 space-y-3.5 custom-scrollbar bg-messages">
-          <div v-for="(msg, index) in messages" :key="index" 
+        <!-- Messages Scroll Container -->
+        <div ref="messageContainer" class="flex-1 overflow-y-auto p-3.5 space-y-3 bg-white dark:bg-slate-900 text-xs">
+          <div v-for="(msg, index) in messages" :key="index"
                :class="['flex flex-col', msg.role === 'user' ? 'items-end' : 'items-start']">
-            <span class="bubble-label">
-              {{ msg.role === 'user' ? 'You' : 'Panha Bot' }}
+            <span class="text-[9px] font-semibold text-slate-400 mb-1 px-1">
+              {{ msg.role === 'user' ? 'You' : 'Panha Assistant' }}
             </span>
             <div :class="[
-              'bubble text-xs leading-relaxed shadow-sm',
-              msg.role === 'user' ? 'bubble-user' : 'bubble-bot'
+              'p-3 rounded-2xl max-w-[85%] leading-relaxed',
+              msg.role === 'user' 
+                ? 'bg-cyan-600 text-white rounded-br-none' 
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-bl-none border border-slate-200/60 dark:border-slate-700/60'
             ]">
               {{ msg.content }}
             </div>
@@ -51,218 +58,138 @@
 
           <!-- Typing Indicator -->
           <div v-if="isTyping" class="flex flex-col items-start">
-            <span class="bubble-label">Panha Bot</span>
-            <div class="bubble bubble-bot flex gap-1.5 shadow-sm">
-              <span class="dot-bounce" style="animation-delay: 0s"></span>
-              <span class="dot-bounce" style="animation-delay: 0.18s"></span>
-              <span class="dot-bounce" style="animation-delay: 0.36s"></span>
+            <span class="text-[9px] font-semibold text-slate-400 mb-1 px-1">Panha Assistant</span>
+            <div class="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 rounded-bl-none flex items-center gap-1.5 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-bounce" style="animation-delay: 0ms"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-bounce" style="animation-delay: 150ms"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-bounce" style="animation-delay: 300ms"></span>
             </div>
           </div>
         </div>
 
-        <!-- Input Field -->
-        <div class="chat-footer p-3 border-t border-black/5 dark:border-white/5">
-          <form @submit.prevent="handleSend" class="relative group">
+        <!-- Input Box -->
+        <div class="p-2.5 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800">
+          <form @submit.prevent="handleSend" class="flex items-center gap-1.5">
             <input v-model="input" 
                    type="text" 
-                   placeholder="Ask about skills, projects, or Supabase..." 
-                   class="chat-input"
+                   placeholder="Ask about skills, projects, or architecture..." 
+                   class="flex-1 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
                    :disabled="isTyping" />
             <button type="submit" 
-                    class="send-button"
+                    class="p-2 rounded-xl bg-cyan-600 text-white hover:bg-cyan-500 disabled:opacity-40 transition-colors shrink-0"
                     :disabled="!input.trim() || isTyping">
-              <span class="material-symbols-outlined text-xs">send</span>
+              <span class="material-symbols-outlined text-sm">send</span>
             </button>
           </form>
         </div>
+
       </div>
     </Transition>
 
-    <!-- Floating Trigger FAB -->
+    <!-- Floating Action Button (FAB) -->
     <button @click="isOpen = !isOpen" 
-            class="pointer-events-auto group relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-purple-600 to-pink-500 flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300">
-      <div class="absolute inset-0 rounded-2xl bg-primary animate-ping opacity-25 group-hover:opacity-0 transition-opacity"></div>
-      <span class="material-symbols-outlined text-white text-2xl transition-transform duration-500"
-            :class="isOpen ? 'rotate-180 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'">
-        forum
-      </span>
-      <span class="material-symbols-outlined text-white text-2xl absolute transition-transform duration-500"
-            :class="isOpen ? 'rotate-0 scale-100 opacity-100' : '-rotate-180 scale-0 opacity-0'">
-        close
+            class="w-12 h-12 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white flex items-center justify-center shadow-lg hover:shadow-cyan-500/25 hover:scale-105 active:scale-95 transition-all"
+            aria-label="Open AI Assistant">
+      <span class="material-symbols-outlined text-xl transition-transform" :class="isOpen ? 'rotate-90' : ''">
+        {{ isOpen ? 'close' : 'smart_toy' }}
       </span>
     </button>
+
   </div>
 </template>
 
-<script setup>
-import { ref, watch, nextTick } from 'vue'
+<script setup lang="ts">
+import { ref, nextTick } from 'vue'
 
 const isOpen = ref(false)
 const input = ref('')
 const isTyping = ref(false)
-const messageContainer = ref(null)
+const messageContainer = ref<HTMLElement | null>(null)
 
-const quickChips = ['Skills', 'Projects', 'Supabase', 'Hire']
+const quickChips = [
+  'Flutter skills',
+  'Clean Architecture',
+  'Red Ant Express',
+  'How to contact'
+]
 
-const messages = ref([
-  { role: 'assistant', content: 'Hello! I am Panha’s AI assistant. Ask me about Flutter, Supabase, Nuxt, or projects!' }
+const initialGreeting = "Hello! I am Panha's AI Portfolio Assistant. Ask me about his Flutter mobile apps, Clean Architecture practices, Supabase projects, or how to get in touch!"
+
+const messages = ref<{ role: 'user' | 'assistant'; content: string }[]>([
+  { role: 'assistant', content: initialGreeting }
 ])
 
-const sendQuick = (chip) => {
-  input.value = `Tell me about your ${chip}`
+const resetConversation = () => {
+  messages.value = [{ role: 'assistant', content: initialGreeting }]
+}
+
+const scrollToBottom = () => {
+  nextTick(() => {
+    if (messageContainer.value) {
+      messageContainer.value.scrollTop = messageContainer.value.scrollHeight
+    }
+  })
+}
+
+const sendQuick = (chipText: string) => {
+  input.value = chipText
   handleSend()
 }
 
 const handleSend = async () => {
-  const prompt = input.value.trim()
-  if (!prompt) return
+  const text = input.value.trim()
+  if (!text || isTyping.value) return
 
-  messages.value.push({ role: 'user', content: prompt })
+  messages.value.push({ role: 'user', content: text })
   input.value = ''
   isTyping.value = true
   scrollToBottom()
 
   try {
-    const history = messages.value.slice(0, -1).map(m => ({
+    const formattedHistory = messages.value.slice(0, -1).map(m => ({
       role: m.role === 'user' ? 'user' : 'model',
       parts: [{ text: m.content }]
     }))
 
-    const data = await $fetch('/api/chat', {
+    const res: any = await $fetch('/api/chat', {
       method: 'POST',
-      body: { prompt, history }
+      body: {
+        prompt: text,
+        history: formattedHistory
+      }
     })
 
-    messages.value.push({ role: 'assistant', content: data.responseText })
-  } catch {
-    messages.value.push({ role: 'assistant', content: 'Ready to assist! Ask me anything about Panha’s portfolio.' })
+    const botReply = res?.responseText || "I am available to assist you with inquiries about Nheb Panha's Flutter development experience, Clean Architecture, and projects."
+    messages.value.push({ role: 'assistant', content: botReply })
+  } catch (err) {
+    messages.value.push({
+      role: 'assistant',
+      content: "I'm momentarily unavailable, but feel free to review the projects on this page or email Panha directly at samlot.development@gmail.com."
+    })
   } finally {
     isTyping.value = false
     scrollToBottom()
   }
 }
-
-const scrollToBottom = async () => {
-  await nextTick()
-  if (messageContainer.value) {
-    messageContainer.value.scrollTop = messageContainer.value.scrollHeight
-  }
-}
-
-watch(isOpen, (newVal) => {
-  if (newVal) scrollToBottom()
-})
 </script>
 
 <style scoped>
-.chat-container {
-  width: 330px;
-  height: 480px;
-  max-height: calc(100vh - 120px);
-  background-color: var(--bg);
-  backdrop-filter: blur(24px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  color: var(--text);
-}
-
-.bg-messages {
-  background-color: rgba(0, 0, 0, 0.02);
-}
-.dark .bg-messages {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.bubble {
-  max-width: 85%;
-  padding: 0.65rem 0.9rem;
-  border-radius: 1.15rem;
-}
-
-.bubble-user {
-  background: linear-gradient(135deg, #811cd9, #6d16b8);
-  color: white !important;
-  border-top-right-radius: 4px;
-}
-
-.bubble-bot {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: var(--text) !important;
-  border-top-left-radius: 4px;
-  border: 1px solid var(--glass-border);
-}
-
-.dark .bubble-bot {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-.bubble-label {
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 3px;
-  margin-left: 8px;
-  margin-right: 8px;
-  opacity: 0.5;
-  color: var(--text);
-}
-
-.chat-input {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
-  padding: 0.65rem 3rem 0.65rem 0.85rem;
-  font-size: 0.8rem;
-  color: var(--text);
-  outline: none;
-}
-
-.dark .chat-input {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.send-button {
-  position: absolute;
-  right: 0.4rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.85rem;
-  height: 1.85rem;
-  background-color: var(--primary);
-  color: white;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dot-bounce {
-  width: 5px;
-  height: 5px;
-  background: #00fbfb;
-  border-radius: 50%;
-  animation: bounce 0.6s ease-in-out infinite alternate;
-}
-
-@keyframes bounce {
-  from { transform: translateY(0); }
-  to { transform: translateY(-4px); }
-}
-
 .chat-window-enter-active,
 .chat-window-leave-active {
-  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.chat-window-enter-from, .chat-window-leave-to {
-  opacity: 0;
-  transform: translateY(20px) scale(0.9);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.custom-scrollbar::-webkit-scrollbar { height: 3px; width: 3px; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(129, 28, 217, 0.4); border-radius: 10px; }
+.chat-window-enter-from,
+.chat-window-leave-to {
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 </style>

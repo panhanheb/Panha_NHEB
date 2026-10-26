@@ -1,133 +1,216 @@
 <template>
-  <div id="hero" class="bg-background text-on-background font-body min-h-screen transition-colors duration-500 relative overflow-hidden">
-    <!-- Hero Section -->
-    <main class="relative min-h-screen flex items-center pt-28 pb-16 bg-grid-pattern" ref="sectionRef">
-      
-      <!-- Ambient Glow Layers -->
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-      </div>
-      <div class="particles"></div>
+  <section id="hero" class="relative min-h-[92vh] flex items-center pt-24 pb-20 bg-grid-subtle overflow-hidden" ref="sectionRef">
+    
+    <!-- Subtle Ambient Gradients -->
+    <div class="absolute top-1/4 left-1/3 -translate-x-1/2 w-[650px] h-[380px] bg-gradient-to-tr from-cyan-500/10 via-indigo-500/10 to-transparent blur-3xl rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-[500px] h-[350px] bg-cyan-400/5 blur-3xl rounded-full pointer-events-none"></div>
 
-      <!-- Main Content Container -->
-      <div class="max-w-7xl mx-auto px-4 md:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-        <!-- Hero Content (Left) -->
-        <div class="lg:col-span-7 transition-all duration-1000 ease-out"
-             :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
+        <!-- Left Content (Hero Pitch) -->
+        <div class="lg:col-span-6 space-y-6 transition-all duration-700 ease-out"
+             :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
           
-          <!-- Availability & Version Tag -->
-          <div class="flex flex-wrap items-center gap-3 mb-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase backdrop-blur-md">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              Available for Freelance & Full-time
-            </div>
-
-            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-on-surface-variant text-[11px] font-mono tracking-wider">
-              <span class="text-primary font-bold">v3.0</span>
-              <span class="opacity-40">|</span>
-              <span>Supabase Edition</span>
-            </div>
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-wide">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>Available for Opportunities</span>
+            <span class="text-slate-300 dark:text-slate-600">•</span>
+            <span class="text-slate-500 dark:text-slate-400 font-normal">Phnom Penh, Cambodia</span>
           </div>
 
           <!-- Main Headline -->
-          <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter mb-6">
-            NHEB
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500 glow-text-cyan">
-              Panha
-            </span>
-          </h1>
-
-          <!-- Role Subtitle -->
-          <div class="flex items-center gap-4 mb-6">
-            <div class="h-[2px] w-12 bg-gradient-to-r from-primary to-cyan-400"></div>
-            <p class="text-lg md:text-xl font-bold uppercase tracking-wide text-on-surface-variant">
-              Flutter Architect <span class="text-secondary mx-1.5">/</span> Full-Stack Developer
+          <div class="space-y-2">
+            <p class="text-xs sm:text-sm font-mono font-bold tracking-widest uppercase text-cyan-600 dark:text-cyan-400">
+              Flutter Developer & Mobile App Architect
             </p>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.08] text-slate-900 dark:text-white">
+              Building Scalable <br class="hidden sm:inline" />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-600">
+                Mobile Experiences.
+              </span>
+            </h1>
           </div>
 
-          <!-- Bio Pitch -->
-          <p class="text-base md:text-lg max-w-xl mb-8 leading-relaxed text-on-surface-variant/90 font-normal">
-            Engineering high-precision mobile applications and cloud backends. Specializing in <span class="text-cyan-400 font-semibold">Flutter</span>, <span class="text-purple-400 font-semibold">Nuxt 3</span>, <span class="text-pink-400 font-semibold">Laravel</span>, and <span class="text-emerald-400 font-semibold">Supabase</span> real-time data engines.
+          <!-- Supporting Description -->
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
+            I'm <strong class="text-slate-900 dark:text-white font-semibold">Nheb Panha</strong>, a Flutter Developer focused on building reliable, intuitive, and maintainable mobile applications with Flutter, Supabase, Firebase, and Clean Architecture.
           </p>
 
-          <!-- Metric Cards Bar -->
-          <div class="grid grid-cols-3 gap-3 md:gap-4 max-w-lg mb-10">
-            <div class="p-3.5 rounded-2xl bg-black/5 dark:bg-white/[0.03] border border-black/5 dark:border-white/10 backdrop-blur-md hover:border-primary/40 transition-all">
-              <div class="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">06+</div>
-              <div class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-on-surface-variant mt-0.5">Ecosystems</div>
-            </div>
-
-            <div class="p-3.5 rounded-2xl bg-black/5 dark:bg-white/[0.03] border border-black/5 dark:border-white/10 backdrop-blur-md hover:border-primary/40 transition-all">
-              <div class="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">99.9%</div>
-              <div class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-on-surface-variant mt-0.5">DB Uptime</div>
-            </div>
-
-            <div class="p-3.5 rounded-2xl bg-black/5 dark:bg-white/[0.03] border border-black/5 dark:border-white/10 backdrop-blur-md hover:border-primary/40 transition-all">
-              <div class="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">100%</div>
-              <div class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-on-surface-variant mt-0.5">Clean Code</div>
-            </div>
+          <!-- Core Capability Highlights -->
+          <div class="flex flex-wrap gap-2 pt-1 text-xs">
+            <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+              <Icon name="logos:flutter" class="text-sm" />
+              Flutter & Dart
+            </span>
+            <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+              <Icon name="logos:supabase-icon" class="text-sm" />
+              Supabase & PostgreSQL
+            </span>
+            <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+              <Icon name="logos:firebase" class="text-sm" />
+              Firebase
+            </span>
+            <span class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-cyan-500 text-sm">layers</span>
+              Clean Architecture & BLoC
+            </span>
           </div>
 
-          <!-- Action Buttons -->
-          <div class="flex flex-wrap items-center gap-4">
-            <a href="#portfolio" @click="(e) => scrollTo('#portfolio', e)"
-               class="px-8 py-4 rounded-xl bg-gradient-to-r from-primary via-purple-600 to-pink-500 text-white font-bold text-xs uppercase tracking-widest hover:shadow-[0_0_30px_rgba(129,28,217,0.6)] hover:-translate-y-1 transition-all active:scale-95 flex items-center gap-2">
-              <span>View Ecosystems</span>
-              <span class="material-symbols-outlined text-sm">north_east</span>
+          <!-- CTAs & Action Links -->
+          <div class="pt-3 flex flex-wrap items-center gap-3 sm:gap-4">
+            <!-- Primary CTA -->
+            <a href="#projects" @click="(e) => scrollTo('#projects', e)"
+               class="btn-primary">
+              <span>View My Projects</span>
+              <span class="material-symbols-outlined text-base">arrow_downward</span>
             </a>
 
+            <!-- Secondary CTA -->
+            <button @click="triggerResume"
+                    class="btn-secondary">
+              <span class="material-symbols-outlined text-base">download</span>
+              <span>Download Resume</span>
+            </button>
+
+            <!-- Contact Link -->
             <a href="#contact" @click="(e) => scrollTo('#contact', e)"
-               class="px-8 py-4 rounded-xl bg-black/5 dark:bg-white/5 border border-cyan-400/40 text-cyan-400 font-bold text-xs uppercase tracking-widest hover:bg-cyan-400/10 hover:-translate-y-1 transition-all active:scale-95 flex items-center gap-2">
-              <span>Let's Talk</span>
-              <span class="material-symbols-outlined text-sm">chat</span>
+               class="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors px-2 py-1 flex items-center gap-1">
+              <span>Contact Me</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
+          </div>
+
+          <!-- Social Proof / Verified Links -->
+          <div class="pt-2 flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <span class="font-medium text-slate-400 dark:text-slate-500">Verified Profiles:</span>
+            <a href="https://github.com/panhanheb" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 hover:text-cyan-500 transition-colors">
+              <Icon name="logos:github-icon" class="text-sm" />
+              <span>GitHub</span>
+            </a>
+            <span class="opacity-30">•</span>
+            <a href="https://linkedin.com/in/nhebpanha" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 hover:text-cyan-500 transition-colors">
+              <Icon name="logos:linkedin-icon" class="text-sm" />
+              <span>LinkedIn</span>
+            </a>
+            <span class="opacity-30">•</span>
+            <span class="inline-flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span>Middle-Level Developer</span>
+            </span>
           </div>
 
         </div>
 
-        <!-- Profile / Graphic (Right) -->
-        <div class="lg:col-span-5 relative flex justify-center lg:justify-end mt-8 lg:mt-0 transition-all duration-1000 ease-out delay-300"
-             :class="isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'">
+        <!-- Right: Circular Developer Profile Showcase (Circle Format) -->
+        <div class="lg:col-span-6 relative flex flex-col items-center justify-center transition-all duration-700 ease-out delay-200"
+             :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
           
-          <div class="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[420px] lg:h-[420px]">
+          <div class="relative flex flex-col items-center max-w-md w-full">
             
-            <!-- Animated Glowing Rings -->
-            <div class="ring ring-1"></div>
-            <div class="ring ring-2"></div>
-            <div class="ring ring-3"></div>
+            <!-- Circular Avatar & Orbiting Pills Wrapper -->
+            <div class="relative flex items-center justify-center my-2">
+              
+              <!-- Ambient Glow Behind Circle -->
+              <div class="absolute inset-0 w-72 h-72 sm:w-88 sm:h-88 md:w-96 md:h-96 -m-4 bg-gradient-to-tr from-cyan-500/25 via-sky-500/20 to-indigo-600/25 rounded-full blur-3xl opacity-75 pointer-events-none"></div>
 
-            <!-- Floating Tech Badges -->
-            <div class="floating-badge top-left">
-              <Icon name="logos:flutter" class="text-lg" />
-              <span>Flutter Lead</span>
+              <!-- Decorative Subtle Orbit Dashed Ring -->
+              <div class="absolute -inset-4 sm:-inset-6 rounded-full border border-dashed border-cyan-500/30 dark:border-cyan-400/30 pointer-events-none"></div>
+
+              <!-- Orbiting Pill 1: Top Right (Flutter 3.x) -->
+              <div class="absolute -top-3 right-1 sm:right-3 z-20 px-3.5 py-1.5 rounded-full bg-slate-900/95 text-white border border-cyan-400/40 shadow-xl backdrop-blur-md text-xs font-bold flex items-center gap-1.5 hover:scale-105 transition-transform">
+                <Icon name="logos:flutter" class="text-sm" />
+                <span>Flutter 3.x</span>
+              </div>
+
+              <!-- Orbiting Pill 2: Top Left (Dart Specialist) -->
+              <div class="absolute top-5 -left-4 sm:-left-8 z-20 px-3.5 py-1.5 rounded-full bg-slate-900/95 text-white border border-slate-700 shadow-xl backdrop-blur-md text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform">
+                <Icon name="logos:dart" class="text-sm" />
+                <span>Dart Specialist</span>
+              </div>
+
+              <!-- Orbiting Pill 3: Bottom Left (Clean Architecture) -->
+              <div class="absolute bottom-6 -left-4 sm:-left-8 z-20 px-3 py-1.5 rounded-full bg-slate-900/95 text-white border border-slate-700 shadow-xl backdrop-blur-md text-[11px] font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-cyan-400 text-xs">layers</span>
+                <span>Clean Architecture</span>
+              </div>
+
+              <!-- Orbiting Pill 4: Bottom Right (Supabase DB) -->
+              <div class="absolute bottom-6 -right-4 sm:-right-8 z-20 px-3 py-1.5 rounded-full bg-slate-900/95 text-white border border-slate-700 shadow-xl backdrop-blur-md text-[11px] font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform">
+                <Icon name="logos:supabase-icon" class="text-xs" />
+                <span>Supabase DB</span>
+              </div>
+
+              <!-- Main Circle Avatar Container -->
+              <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[320px] md:h-[320px] rounded-full p-2 bg-gradient-to-tr from-cyan-400 via-sky-500 to-indigo-600 shadow-[0_0_50px_rgba(6,182,212,0.35)] transition-transform duration-500 hover:scale-[1.02] group">
+                
+                <!-- Inner Circle with Photo -->
+                <div class="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 bg-slate-950 relative shadow-inner">
+                  <img :src="currentPhoto" alt="Nheb Panha — Flutter Developer"
+                       class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                  
+                  <!-- Bottom Dark Fade on Circle -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
+                  
+                  <!-- Ready for Hire Pill inside circle bottom -->
+                  <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-emerald-400/40 text-emerald-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg whitespace-nowrap">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Available for Hire</span>
+                  </div>
+                </div>
+
+              </div>
+
             </div>
 
-            <div class="floating-badge top-right">
-              <Icon name="logos:supabase-icon" class="text-lg" />
-              <span>Supabase DB</span>
+            <!-- Photo Switcher Pill Below Circle -->
+            <div class="mt-4 flex items-center gap-2">
+              <button @click="togglePhoto"
+                      class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1.5 shadow-sm"
+                      title="Switch between studio photo and field photo">
+                <span class="material-symbols-outlined text-sm">switch_camera</span>
+                <span>Switch to {{ photoMode === 'studio' ? 'Field Photo' : 'Studio Photo' }}</span>
+              </button>
             </div>
 
-            <div class="floating-badge bottom-left">
-              <Icon name="logos:nuxt-icon" class="text-lg" />
-              <span>Nuxt 3 SSR</span>
-            </div>
+            <!-- Profile Info Card Below Circle -->
+            <div class="mt-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg text-center space-y-2 w-full max-w-sm">
+              <div class="flex items-center justify-center gap-1.5">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Nheb Panha</h3>
+                <span class="material-symbols-outlined text-cyan-500 text-base" title="Verified Profile">verified</span>
+              </div>
+              
+              <p class="text-xs font-semibold text-cyan-600 dark:text-cyan-400">
+                Flutter Developer & Mobile App Architect
+              </p>
 
-            <div class="floating-badge bottom-right">
-              <Icon name="logos:laravel" class="text-lg" />
-              <span>REST APIs</span>
-            </div>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-xs">location_on</span>
+                <span>Phnom Penh, Cambodia (UTC+7)</span>
+              </p>
 
-            <!-- Central Profile Container -->
-            <div class="w-full h-full rounded-full p-2.5 bg-gradient-to-br from-primary via-cyan-400 to-pink-500 shadow-[0_0_60px_rgba(129,28,217,0.35)] relative z-10">
-              <div class="w-full h-full rounded-full overflow-hidden border-4 border-slate-950 bg-slate-900 relative group">
-                <img src="/image/panha_profile.png" alt="Nheb Panha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex justify-center gap-3">
+                <a href="https://github.com/panhanheb" target="_blank" rel="noopener noreferrer"
+                   class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 transition-colors"
+                   title="GitHub">
+                  <Icon name="logos:github-icon" class="text-sm" />
+                </a>
+                <a href="https://linkedin.com/in/nhebpanha" target="_blank" rel="noopener noreferrer"
+                   class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 transition-colors"
+                   title="LinkedIn">
+                  <Icon name="logos:linkedin-icon" class="text-sm" />
+                </a>
+                <a href="mailto:samlot.development@gmail.com"
+                   class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-cyan-500 transition-colors"
+                   title="Email">
+                  <span class="material-symbols-outlined text-sm">mail</span>
+                </a>
               </div>
             </div>
 
@@ -136,162 +219,54 @@
         </div>
 
       </div>
-
-      <!-- Infinite Marquee Ticker -->
-      <div class="absolute bottom-0 left-0 w-full overflow-hidden bg-black/40 dark:bg-black/60 backdrop-blur-xl border-t border-black/5 dark:border-white/10 py-3.5 z-20">
-        <div class="marquee-container flex whitespace-nowrap">
-          <div class="marquee-content flex gap-8 md:gap-14 items-center px-6">
-            <span v-for="skill in skills" :key="skill.name" class="text-xs font-bold tracking-[0.2em] uppercase text-on-surface-variant/80 hover:text-cyan-400 transition-colors flex items-center gap-2.5">
-              <Icon :name="skill.icon" class="text-lg" />
-              {{ skill.name }}
-            </span>
-          </div>
-          <!-- Duplicate for loop -->
-          <div class="marquee-content flex gap-8 md:gap-14 items-center px-6" aria-hidden="true">
-            <span v-for="skill in skills" :key="skill.name + '-dup'" class="text-xs font-bold tracking-[0.2em] uppercase text-on-surface-variant/80 hover:text-cyan-400 transition-colors flex items-center gap-2.5">
-              <Icon :name="skill.icon" class="text-lg" />
-              {{ skill.name }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-    </main>
-  </div>
+    </div>
+  </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref, computed } from 'vue'
 import { useScrollAnimate } from '~/composables/useScrollAnimate'
 
 const { sectionRef, isVisible } = useScrollAnimate(0.1)
 
-const skills = [
-  { name: 'Flutter', icon: 'logos:flutter' },
-  { name: 'Supabase', icon: 'logos:supabase-icon' },
-  { name: 'Nuxt.js', icon: 'logos:nuxt-icon' },
-  { name: 'Vue.js', icon: 'logos:vue' },
-  { name: 'Laravel', icon: 'logos:laravel' },
-  { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
-  { name: 'Firebase', icon: 'logos:firebase' },
-  { name: 'Dart', icon: 'logos:dart' },
-  { name: 'PostgreSQL', icon: 'logos:postgresql' },
-  { name: 'TypeScript', icon: 'logos:typescript-icon' },
-  { name: 'Node.js', icon: 'logos:nodejs-icon' }
-]
+const photoMode = ref<'studio' | 'field'>('studio')
 
-const scrollTo = (href, e) => {
+const currentPhoto = computed(() => {
+  return photoMode.value === 'studio' ? '/image/panha_part.png' : '/image/panha_profile.png'
+})
+
+const togglePhoto = () => {
+  photoMode.value = photoMode.value === 'studio' ? 'field' : 'studio'
+}
+
+const scrollTo = (href: string, e: MouseEvent) => {
   e.preventDefault()
-  const target = document.querySelector(href)
+  const target = document.querySelector(href) as HTMLElement | null
   if (target) {
-    const yOffset = -90
+    const yOffset = -80
     const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset
     window.scrollTo({ top: y, behavior: 'smooth' })
   }
 }
+
+const showResumeModal = useState('resumeModal', () => false)
+
+const triggerResume = () => {
+  fetch('/resume.pdf', { method: 'HEAD' })
+    .then(res => {
+      if (res.ok) {
+        const link = document.createElement('a')
+        link.href = '/resume.pdf'
+        link.setAttribute('download', 'Nheb_Panha_Resume.pdf')
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      } else {
+        showResumeModal.value = true
+      }
+    })
+    .catch(() => {
+      showResumeModal.value = true
+    })
+}
 </script>
-
-<style scoped>
-/* ================= BLOBS ================= */
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(140px);
-  opacity: 0.35;
-  animation: floatBlob 14s infinite ease-in-out alternate;
-}
-
-.blob-1 {
-  width: 450px;
-  height: 450px;
-  background: #811cd9;
-  top: -10%;
-  right: -5%;
-}
-
-.blob-2 {
-  width: 400px;
-  height: 400px;
-  background: #00fbfb;
-  bottom: 0%;
-  left: -5%;
-  animation-delay: 4s;
-}
-
-.blob-3 {
-  width: 350px;
-  height: 350px;
-  background: #ff81f5;
-  top: 40%;
-  right: 30%;
-  animation-delay: 8s;
-}
-
-@keyframes floatBlob {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-50px, 50px) scale(1.15); }
-}
-
-/* ================= RINGS ================= */
-.ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(129, 28, 217, 0.25);
-  animation: ringPulse 4s infinite ease-in-out;
-  pointer-events: none;
-}
-
-.ring-1 { inset: -15px; border-color: rgba(129, 28, 217, 0.3); }
-.ring-2 { inset: -35px; border-color: rgba(0, 251, 251, 0.25); animation-delay: 1.2s; }
-.ring-3 { inset: -55px; border-color: rgba(255, 129, 245, 0.2); animation-delay: 2.4s; }
-
-@keyframes ringPulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.04); opacity: 0.9; }
-}
-
-/* ================= FLOATING BADGES ================= */
-.floating-badge {
-  position: absolute;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.85rem;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 9999px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #fff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-  animation: floatBadge 6s ease-in-out infinite alternate;
-}
-
-.top-left { top: 5%; left: -10px; border-left: 3px solid #811cd9; }
-.top-right { top: 12%; right: -15px; border-left: 3px solid #10b981; animation-delay: 1.5s; }
-.bottom-left { bottom: 15%; left: -15px; border-left: 3px solid #00fbfb; animation-delay: 3s; }
-.bottom-right { bottom: 5%; right: -10px; border-left: 3px solid #ff81f5; animation-delay: 4.5s; }
-
-@keyframes floatBadge {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
-}
-
-/* ================= MARQUEE ================= */
-.marquee-container {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-  animation: scrollMarquee 35s linear infinite;
-}
-
-.marquee-container:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollMarquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
-}
-</style>

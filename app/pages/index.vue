@@ -1,10 +1,11 @@
 <template>
-  <HeroSection />
-  <About />
-  <Portfolio />
-  <Skills />
-  <TechStack />
-  <WorkTimeline />
-  <Blog />
-  <ExperienceContact />
+  <div class="relative">
+    <HeroSection />
+    <About />
+    <Skills />
+    <Architecture />
+    <Portfolio />
+    <WorkTimeline />
+    <ExperienceContact />
+  </div>
 </template>

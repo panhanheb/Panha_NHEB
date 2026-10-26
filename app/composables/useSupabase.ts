@@ -5,12 +5,15 @@ export interface ProjectItem {
   title: string
   category: string
   description: string
+  problem_solved?: string
+  role?: string
+  key_challenges?: string
   icon: string
   link: string
   github_url?: string
   demo_url?: string
   app_store_url?: string
-  status?: 'Released' | 'Production' | 'Featured' | 'Beta'
+  status?: string
   metrics?: string
   featured?: boolean
   tags: { name: string; icon: string }[]
@@ -70,107 +73,131 @@ export interface TechItem {
 const FALLBACK_PROJECTS: ProjectItem[] = [
   {
     id: "p1",
-    title: "FinTech Wallet & Payment Suite",
-    category: "Financial Ecosystem",
-    description: "High-performance cross-platform digital wallet solution featuring real-time transactions, biometric authentication, QR payment engine, and multi-currency ledger.",
+    title: "Red Ant Express Mobile Application",
+    category: "Mobile",
+    description: "Cross-platform logistics and courier mobile application featuring real-time parcel tracking, QR code scanning, driver route updates, and delivery status.",
+    problem_solved: "Streamlined last-mile parcel dispatching and courier tracking for couriers and recipients with instantaneous status visibility.",
+    role: "Mobile Developer — UI implementation, REST API integration, QR scan module, and BLoC state management.",
+    key_challenges: "Handling intermittent network coverage in delivery zones using local SQLite/Hive caching and automatic synchronization upon reconnection.",
     icon: "logos:flutter",
-    link: "https://github.com/nhebpanha",
-    github_url: "https://github.com/nhebpanha",
-    demo_url: "https://github.com/nhebpanha",
+    link: "https://github.com/panhanheb",
+    github_url: "https://github.com/panhanheb",
+    demo_url: "https://github.com/panhanheb",
     status: "Released",
-    metrics: "15k+ Transactions / Day",
+    metrics: "Production Mobile Solution",
     featured: true,
     tags: [
       { name: "Flutter", icon: "logos:flutter" },
-      { name: "Laravel", icon: "logos:laravel" },
-      { name: "PostgreSQL", icon: "logos:postgresql" }
+      { name: "Dart", icon: "logos:dart" },
+      { name: "BLoC", icon: "logos:flutter" },
+      { name: "REST API", icon: "logos:nodejs-icon" }
     ]
   },
   {
     id: "p2",
-    title: "Nexus Logistics & Fleet Engine",
-    category: "Delivery System",
-    description: "Enterprise real-time logistics platform with active GPS telemetry tracking, route optimization algorithms, driver dispatching, and dynamic delivery status.",
-    icon: "logos:nuxt-icon",
-    link: "https://github.com/nhebpanha",
-    github_url: "https://github.com/nhebpanha",
-    demo_url: "https://github.com/nhebpanha",
+    title: "E-Commerce & Product Discovery Platform",
+    category: "Mobile",
+    description: "Modern retail application with instant fuzzy search, product categorization, shopping cart state management, and secure checkout integration.",
+    problem_solved: "Reduced friction in mobile product discovery by building responsive search indexing and localized currency switching.",
+    role: "Mobile Developer — Designed responsive component hierarchy, shopping cart state with Cubit, and RESTful product catalog integration.",
+    key_challenges: "Managing complex nested state between filters, cart items, and localized stock counts with zero UI frame lag.",
+    icon: "logos:flutter",
+    link: "https://github.com/panhanheb",
+    github_url: "https://github.com/panhanheb",
+    demo_url: "https://github.com/panhanheb",
     status: "Production",
-    metrics: "50k+ Tracked Shipments",
+    metrics: "Modular Architecture",
     featured: true,
     tags: [
-      { name: "Nuxt 3", icon: "logos:nuxt-icon" },
-      { name: "Supabase", icon: "logos:supabase-icon" },
-      { name: "Google Maps", icon: "logos:google-maps" }
+      { name: "Flutter", icon: "logos:flutter" },
+      { name: "Dart", icon: "logos:dart" },
+      { name: "Firebase", icon: "logos:firebase" },
+      { name: "REST API", icon: "logos:javascript" }
     ]
   },
   {
     id: "p3",
-    title: "Aura E-Commerce Platform",
-    category: "Retail Platform",
-    description: "Modern headless retail experience with instant fuzzy filtering, Stripe checkout integration, real-time inventory management, and automated invoice printing.",
-    icon: "logos:vue",
-    link: "https://github.com/nhebpanha",
-    github_url: "https://github.com/nhebpanha",
-    demo_url: "https://github.com/nhebpanha",
+    title: "Booking & Coupon Service Platform",
+    category: "Mobile",
+    description: "Mobile service booking and coupon voucher redemption platform featuring real-time schedule calendars, QR validation, and promotion engines.",
+    problem_solved: "Eliminated double-booking and invalid coupon claims with synchronized cloud validation and instant feedback alerts.",
+    role: "Mobile & Backend Integration — Implemented booking calendar UI, Supabase cloud synchronization, and voucher validation logic.",
+    key_challenges: "Synchronizing concurrent time slot selections with real-time Supabase listeners to avoid double bookings.",
+    icon: "logos:flutter",
+    link: "https://github.com/panhanheb",
+    github_url: "https://github.com/panhanheb",
+    demo_url: "https://github.com/panhanheb",
     status: "Released",
-    metrics: "99.9% Checkout Conversion",
+    metrics: "Real-time Cloud Sync",
     featured: true,
     tags: [
-      { name: "Vue 3", icon: "logos:vue" },
-      { name: "Firebase", icon: "logos:firebase" },
-      { name: "Stripe", icon: "logos:stripe" }
+      { name: "Flutter", icon: "logos:flutter" },
+      { name: "Dart", icon: "logos:dart" },
+      { name: "Supabase", icon: "logos:supabase-icon" },
+      { name: "Clean Architecture", icon: "logos:flutter" }
     ]
   },
   {
     id: "p4",
-    title: "Precision Accounting Suite",
-    category: "Business Tool",
-    description: "Automated accounting software for SMEs focused on tax compliance, financial analytics reporting, automated bank feeds, and receipt scanning.",
-    icon: "logos:laravel",
-    link: "https://github.com/nhebpanha",
-    github_url: "https://github.com/nhebpanha",
-    status: "Production",
-    metrics: "Sub-second Audit Queries",
+    title: "FinTech Wallet & Payment Suite",
+    category: "Mobile",
+    description: "Cross-platform digital wallet solution with biometric authentication, peer-to-peer transfers, QR payment generation, and multi-currency ledger.",
+    problem_solved: "Provided secure, verifiable ledger transactions and intuitive financial tracking for mobile users.",
+    role: "Flutter Developer — Built biometric security flows, clean transaction ledgers, and decoupled API service adapters.",
+    key_challenges: "Safeguarding user authentication states and handling atomic ledger balances across network disconnects.",
+    icon: "logos:flutter",
+    link: "https://github.com/panhanheb",
+    github_url: "https://github.com/panhanheb",
+    status: "Released",
+    metrics: "Secure Biometric Auth",
     featured: false,
     tags: [
-      { name: "Laravel", icon: "logos:laravel" },
-      { name: "TypeScript", icon: "logos:typescript-icon" },
-      { name: "Tailwind", icon: "logos:tailwindcss-icon" }
+      { name: "Flutter", icon: "logos:flutter" },
+      { name: "PostgreSQL", icon: "logos:postgresql" },
+      { name: "REST API", icon: "logos:laravel" }
     ]
   },
   {
     id: "p5",
-    title: "Smart HR & Payroll Engine",
-    category: "Enterprise Tool",
-    description: "Comprehensive human resource management system featuring automated monthly payroll, attendance check-ins, leave workflow approvals, and KPI dashboards.",
-    icon: "logos:nuxt-icon",
-    link: "https://github.com/nhebpanha",
-    github_url: "https://github.com/nhebpanha",
-    status: "Production",
-    metrics: "Automated Payroll Batching",
+    title: "Academic SME Accounting Suite",
+    category: "Academic Projects",
+    description: "Accounting and financial record management system built for small businesses to manage double-entry ledgers, financial statements, and tax calculations.",
+    problem_solved: "Simplified financial ledger entries and automated reconciliation calculations for non-accountant small business owners.",
+    role: "Full-Stack Developer — Designed database normalization schemas in SQL, automated ledger balancing, and built the responsive interface.",
+    key_challenges: "Ensuring double-entry balancing integrity across multiple currency inputs and audit logging.",
+    icon: "logos:vue",
+    link: "https://github.com/panhanheb",
+    github_url: "https://github.com/panhanheb",
+    status: "Completed",
+    metrics: "Full Ledger System",
     featured: false,
     tags: [
-      { name: "Nuxt 3", icon: "logos:nuxt-icon" },
-      { name: "Laravel", icon: "logos:laravel" },
-      { name: "MySQL", icon: "logos:mysql-icon" }
+      { name: "Vue 3", icon: "logos:vue" },
+      { name: "TypeScript", icon: "logos:typescript-icon" },
+      { name: "SQL", icon: "logos:postgresql" },
+      { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
     ]
   },
   {
     id: "p6",
-    title: "AgriTech Monitor IoT",
-    category: "IoT Platform",
-    description: "Real-time precision agriculture dashboard connecting soil moisture sensors, weather telemetry, automated irrigation triggers, and crop yield forecasting.",
-    icon: "logos:flutter",
-    link: "https://github.com/nhebpanha",
-    github_url: "https://github.com/nhebpanha",
-    status: "Released",
-    metrics: "24/7 Sensor Telemetry",
-    featured: false,
+    title: "Nheb Panha Developer Portfolio",
+    category: "Web",
+    description: "High-performance developer portfolio built with Nuxt 4, Vue 3, Supabase real-time database, Tailwind CSS, and Google Gemini AI Assistant integration.",
+    problem_solved: "Showcases engineering projects, architecture principles, and provides direct communication pipelines via Supabase and Telegram.",
+    role: "Lead Developer — Full-stack architecture, UI design, Gemini AI integration, and Supabase database modeling.",
+    key_challenges: "Crafting sub-second page performance with dark/light theme persistence and resilient serverless AI fallbacks.",
+    icon: "logos:nuxt-icon",
+    link: "https://nheb-panha.vercel.app/",
+    github_url: "https://github.com/panhanheb/Panha_NHEB",
+    demo_url: "https://nheb-panha.vercel.app/",
+    status: "Live Production",
+    metrics: "Nuxt 4 + Supabase + Gemini",
+    featured: true,
     tags: [
-      { name: "Flutter", icon: "logos:flutter" },
-      { name: "Node.js", icon: "logos:nodejs-icon" },
-      { name: "Supabase", icon: "logos:supabase-icon" }
+      { name: "Nuxt 4", icon: "logos:nuxt-icon" },
+      { name: "Vue 3", icon: "logos:vue" },
+      { name: "Supabase", icon: "logos:supabase-icon" },
+      { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" }
     ]
   }
 ]
@@ -297,6 +324,9 @@ export const useSupabase = () => {
         title: item.title,
         category: item.category,
         description: item.description,
+        problem_solved: item.problem_solved,
+        role: item.role,
+        key_challenges: item.key_challenges,
         icon: item.icon || 'logos:flutter',
         link: item.link || '#',
         github_url: item.github_url || '#',

@@ -1,92 +1,189 @@
 <template>
-  <div class="bg-background text-on-background font-body transition-colors duration-500 overflow-hidden relative">
-    <!-- Ambient Glows -->
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-    <section id="skills" class="pt-24 md:pt-36 pb-20 md:pb-32 max-w-7xl mx-auto px-4 md:px-8 relative z-10" ref="sectionRef">
-
-      <!-- Header -->
-      <div class="mb-16 transition-all duration-1000 ease-out"
-           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-primary text-[10px] font-bold tracking-[0.35em] uppercase mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-            Technical Expertise
+  <section id="skills" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" ref="sectionRef">
+    
+    <div class="transition-all duration-700 ease-out"
+         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mb-12 sm:mb-16">
+        <span class="text-xs font-mono font-bold tracking-widest uppercase text-cyan-600 dark:text-cyan-400 block mb-2">
+          Technical Capabilities
         </span>
-        <h2 class="font-headline text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.85] mb-6">
-          Core Technical <br/>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500">Specialization</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
+          Core Skills & Technologies.
         </h2>
-        <p class="text-on-surface-variant/80 text-base md:text-lg max-w-2xl leading-relaxed">
-          Production-proven mastery across mobile frameworks, cloud data platforms, serverless backends, and UI architectural patterns.
+        <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          A structured breakdown of technologies, frameworks, and engineering practices applied across production mobile and web projects.
         </p>
       </div>
 
-      <!-- Skills Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div v-for="(skill, index) in skillList" :key="index" 
-             class="group relative p-7 rounded-[2rem] bg-white/40 dark:bg-white/[0.02] border border-black/5 dark:border-white/10 hover:border-primary/40 transition-all duration-500 overflow-hidden flex flex-col justify-between"
-             :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
-             :style="{ transitionDelay: isVisible ? `${index * 70}ms` : '0ms' }">
-          
-          <!-- Card Top -->
-          <div>
-            <!-- Hover Glow Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-cyan-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-            <!-- Icon & Category -->
-            <div class="flex justify-between items-center mb-6 relative z-10">
-              <div class="w-14 h-14 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
-                <Icon :name="skill.icon" class="text-3xl text-on-surface" />
+      <!-- Categories Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        
+        <!-- 1. Mobile Development -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">smartphone</span>
               </div>
-              <span class="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-wider px-2.5 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20">
-                {{ skill.level }}%
-              </span>
+              <div>
+                <h3 class="font-bold text-base text-slate-900 dark:text-white">Mobile Development</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Cross-Platform iOS & Android</p>
+              </div>
             </div>
-
-            <!-- Title & Description -->
-            <div class="relative z-10 mb-6">
-              <h3 class="text-xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors duration-300">
-                {{ skill.name }}
-              </h3>
-              <p class="text-xs text-on-surface-variant/80 leading-relaxed">
-                {{ skill.desc }}
-              </p>
-            </div>
+            <span class="text-[10px] font-mono font-bold text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-full">
+              Core Specialty
+            </span>
           </div>
 
-          <!-- Card Bottom: Proficiency Meter -->
-          <div class="relative z-10 pt-4 border-t border-black/5 dark:border-white/5">
-            <div class="flex justify-between text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1.5">
-              <span>Proficiency</span>
-              <span>{{ skill.level >= 90 ? 'Master' : 'Advanced' }}</span>
-            </div>
-            <div class="w-full h-2 rounded-full bg-black/5 dark:bg-white/10 overflow-hidden">
-              <div class="h-full rounded-full bg-gradient-to-r from-primary via-cyan-400 to-pink-400 transition-all duration-1000"
-                   :style="{ width: isVisible ? `${skill.level}%` : '0%' }"></div>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Developing high-performance, responsive mobile applications with smooth 60fps animations, native hardware access, and robust offline capability.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <div v-for="skill in mobileSkills" :key="skill.name"
+                 class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200">
+              <Icon :name="skill.icon" class="text-sm shrink-0" />
+              <span>{{ skill.name }}</span>
             </div>
           </div>
-
         </div>
+
+        <!-- 2. Architecture & Engineering -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">account_tree</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-base text-slate-900 dark:text-white">Architecture & Engineering</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Code Organization & Patterns</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-full">
+              Maintainability
+            </span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Separating concerns across domain logic, data models, and presentation layers to keep codebases testable, extensible, and free of regression bugs.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <div v-for="skill in architectureSkills" :key="skill.name"
+                 class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200">
+              <span class="material-symbols-outlined text-sm text-indigo-500">{{ skill.icon }}</span>
+              <span>{{ skill.name }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Backend & Database -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">database</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-base text-slate-900 dark:text-white">Backend & Database</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Cloud Sync & Persistence</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">
+              Real-Time
+            </span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Managing relational PostgreSQL data, Row-Level Security policies, user authentication pipelines, and real-time subscription channels.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <div v-for="skill in backendSkills" :key="skill.name"
+                 class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200">
+              <Icon :name="skill.icon" class="text-sm shrink-0" />
+              <span>{{ skill.name }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Web Development -->
+        <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">language</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-base text-slate-900 dark:text-white">Web Development</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Full-Stack & Reactive Interfaces</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-full">
+              Full-Stack
+            </span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Building accessible web interfaces, serverless API proxies, admin panels, and interactive dashboards using modern Vue/Nuxt tooling.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <div v-for="skill in webSkills" :key="skill.name"
+                 class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200">
+              <Icon :name="skill.icon" class="text-sm shrink-0" />
+              <span>{{ skill.name }}</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 import { useScrollAnimate } from '~/composables/useScrollAnimate'
 
-const skillList = [
-  { name: 'Flutter & Dart', icon: 'logos:flutter', level: 95, desc: 'Cross-platform mobile apps with native performance, custom BLoC/Riverpod state, and offline caching.' },
-  { name: 'Supabase', icon: 'logos:supabase-icon', level: 90, desc: 'Real-time PostgreSQL databases, authentication, serverless functions, and Row Level Security.' },
-  { name: 'Nuxt.js & Vue 3', icon: 'logos:nuxt-icon', level: 92, desc: 'Modern web apps with SSR, static generation, Pinia state, and dynamic routing.' },
-  { name: 'Laravel API', icon: 'logos:laravel', level: 88, desc: 'Secure backend microservices, RESTful APIs, Eloquent ORM, and queue management.' },
-  { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon', level: 96, desc: 'Utility-first modern styling, dark mode glassmorphism, and responsive layout grids.' },
-  { name: 'PostgreSQL & MySQL', icon: 'logos:postgresql', level: 86, desc: 'Relational database schema modeling, indexing optimization, and SQL analytics queries.' },
-  { name: 'Firebase', icon: 'logos:firebase', level: 88, desc: 'Cloud Firestore, Auth, Push Notifications, Cloud Messaging, and hosting workflows.' },
-  { name: 'Git & DevOps', icon: 'logos:git-icon', level: 90, desc: 'Version control, GitHub Actions CI/CD pipelines, automated deployments, and release tags.' }
+const { sectionRef, isVisible } = useScrollAnimate(0.1)
+
+const mobileSkills = [
+  { name: 'Flutter', icon: 'logos:flutter' },
+  { name: 'Dart', icon: 'logos:dart' },
+  { name: 'BLoC / Cubit', icon: 'logos:flutter' },
+  { name: 'Provider', icon: 'logos:flutter' },
+  { name: 'Riverpod', icon: 'logos:flutter' },
+  { name: 'Responsive Mobile UI', icon: 'material-symbols:devices' },
+  { name: 'Platform Integration', icon: 'material-symbols:settings-cell' }
 ]
 
-const { sectionRef, isVisible } = useScrollAnimate(0.1)
+const architectureSkills = [
+  { name: 'Clean Architecture', icon: 'layers' },
+  { name: 'Modular Design', icon: 'grid_view' },
+  { name: 'State Management', icon: 'sync' },
+  { name: 'REST API Integration', icon: 'api' },
+  { name: 'Error Handling', icon: 'shield' },
+  { name: 'Maintainable Code', icon: 'code' }
+]
+
+const backendSkills = [
+  { name: 'Supabase', icon: 'logos:supabase-icon' },
+  { name: 'Firebase', icon: 'logos:firebase' },
+  { name: 'PostgreSQL', icon: 'logos:postgresql' },
+  { name: 'SQL', icon: 'logos:mysql-icon' },
+  { name: 'Authentication', icon: 'material-symbols:lock' },
+  { name: 'Database Integration', icon: 'material-symbols:storage' }
+]
+
+const webSkills = [
+  { name: 'Vue 3', icon: 'logos:vue' },
+  { name: 'Nuxt 4', icon: 'logos:nuxt-icon' },
+  { name: 'TypeScript', icon: 'logos:typescript-icon' },
+  { name: 'Java', icon: 'logos:java' },
+  { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' }
+]
 </script>
